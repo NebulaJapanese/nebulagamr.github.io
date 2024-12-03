@@ -41,6 +41,11 @@
         <p>Hi, I'm NebulaGamer_1221! I create gaming content that includes walkthroughs, challenges, and epic moments.</p>
     </section>
 
+    <section id="subscriber-count">
+        <h2>Subscriber Count</h2>
+        <p id="subscriber-count-display">Loading subscriber count...</p>
+    </section>
+
     <section id="contact">
         <h2>Contact Me</h2>
         <form action="mailto:nebulajapanese@gmail.com" method="post" enctype="text/plain">
@@ -60,5 +65,20 @@
     <footer>
         <p>&copy; 2024 NebulaGamer_1221. All rights reserved.</p>
     </footer>
+
+    <script>
+        // Fetch subscriber count using YouTube API
+        const channelId = "UCYXVlYpRAh7a7mc1wJ_KHGw";  // Replace with your actual channel ID
+        const apiKey = "AIzaSyCtLCE5YqGhDnt3q9dVg38QK8r1IQLdEF8";    // Replace with your API key
+
+        async function getSubscriberCount() {
+            const response = await fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${channelId}&key=${apiKey}`);
+            const data = await response.json();
+            const subscriberCount = data.items[0].statistics.subscriberCount;
+            document.getElementById('subscriber-count-display').textContent = `Subscribers: ${subscriberCount}`;
+        }
+
+        getSubscriberCount();
+    </script>
 </body>
 </html>
