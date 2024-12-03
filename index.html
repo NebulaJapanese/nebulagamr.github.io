@@ -5,6 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NebulaGamer_1221</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Pac-Man Game Styles */
+        #pacman-game {
+            width: 400px;
+            height: 400px;
+            background-color: black;
+            position: relative;
+            margin: 0 auto;
+        }
+
+        .wall {
+            position: absolute;
+            background-color: blue;
+        }
+
+        .pacman {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: yellow;
+            border-radius: 50%;
+        }
+
+        .dot {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: white;
+            border-radius: 50%;
+        }
+
+        #game-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 20px;
+            color: white;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -15,10 +56,9 @@
         <nav>
             <ul>
                 <li><a href="#home">Home</a></li>
-                <li><a href="#videos">Videos</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li><a href="#merch">Merch</a></li> <!-- Added Merch link -->
+                <li><a href="#merch">Merch</a></li>
             </ul>
         </nav>
     </header>
@@ -26,14 +66,22 @@
     <section id="home">
         <h2>Welcome to NebulaGamer_1221</h2>
         <p>Explore my gaming content, adventures, and more!</p>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/YOUR_VIDEO_ID" frameborder="0" allowfullscreen></iframe>
     </section>
 
-    <section id="videos">
-        <h2>My Videos</h2>
-        <div class="video-gallery">
-            <iframe width="280" height="158" src="https://www.youtube.com/embed/YOUR_VIDEO_ID1" frameborder="0" allowfullscreen></iframe>
-            <iframe width="280" height="158" src="https://www.youtube.com/embed/YOUR_VIDEO_ID2" frameborder="0" allowfullscreen></iframe>
+    <section id="pacman-game">
+        <h2>Pac-Man Game</h2>
+        <div id="pacman-game">
+            <div id="game-text">NebulaGamer_1221</div>
+            <!-- Simple Maze (example with some walls and Pac-Man) -->
+            <div class="wall" style="top: 50px; left: 50px; width: 100px; height: 20px;"></div>
+            <div class="wall" style="top: 50px; left: 150px; width: 20px; height: 100px;"></div>
+            <div class="wall" style="top: 150px; left: 50px; width: 100px; height: 20px;"></div>
+            <div class="wall" style="top: 100px; left: 100px; width: 20px; height: 100px;"></div>
+            <!-- Pac-Man -->
+            <div class="pacman" style="top: 100px; left: 100px;"></div>
+            <!-- Dots -->
+            <div class="dot" style="top: 120px; left: 120px;"></div>
+            <div class="dot" style="top: 140px; left: 120px;"></div>
         </div>
     </section>
 
@@ -97,3 +145,4 @@
     </script>
 </body>
 </html>
+
