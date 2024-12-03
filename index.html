@@ -3,33 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Merch - NebulaGamer_1221</title>
+    <title>NebulaGamer_1221</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
         <div class="banner">
-            <h1>Merch - NebulaGamer_1221</h1>
-            <p>Stay tuned for exciting merch releases!</p>
+            <h1>NebulaGamer_1221</h1>
+            <p>Gaming adventures and beyond!</p>
         </div>
         <nav>
             <ul>
-                <li><a href="index.html">Home</a></li>
+                <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li><a href="merch.html">Merch</a></li>
+                <li><a href="merch.html">Merch</a></li> <!-- Link to merch page -->
             </ul>
         </nav>
     </header>
 
-    <section id="merch">
-        <h2>Our Merch</h2>
-        <p>Coming Soon!</p> <!-- Coming Soon message -->
-        <p>We are working hard to bring you amazing merchandise. Stay tuned for exciting releases!</p>
+    <section id="home">
+        <h2>Welcome to NebulaGamer_1221</h2>
+        <p>Explore my gaming content, adventures, and more!</p>
+    </section>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Hi, I'm NebulaGamer_1221! I create gaming content that includes walkthroughs, challenges, and epic moments.</p>
+    </section>
+
+    <section id="subscriber-count">
+        <h2>Subscriber Count</h2>
+        <p id="subscriber-count-display">Loading subscriber count...</p>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <form action="mailto:nebulajapanese@gmail.com" method="post" enctype="text/plain">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+            
+            <button type="submit">Send</button>
+        </form>
+    </section>
+
+    <section id="youtube-channel">
+        <h2>Follow Me on YouTube</h2>
+        <a href="https://www.youtube.com/channel/NebulaGamer_1221" target="_blank">
+            <button>Visit My YouTube Channel</button>
+        </a>
     </section>
 
     <footer>
         <p>&copy; 2024 NebulaGamer_1221. All rights reserved.</p>
     </footer>
+
+    <script>
+        // Fetch subscriber count using YouTube API
+        const channelId = "UCxw8xxxxxx";  // Replace with your actual channel ID
+        const apiKey = "YOUR_API_KEY";    // Replace with your API key
+
+        async function getSubscriberCount() {
+            const response = await fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${channelId}&key=${apiKey}`);
+            const data = await response.json();
+            const subscriberCount = data.items[0].statistics.subscriberCount;
+            document.getElementById('subscriber-count-display').textContent = `Subscribers: ${subscriberCount}`;
+        }
+
+        getSubscriberCount();
+    </script>
 </body>
 </html>
